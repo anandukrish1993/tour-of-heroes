@@ -1,0 +1,19 @@
+<div class="heroes-list-container">
+  <ul class="heroes">
+    <li *ngFor="let hero of heroList" class="hero-item" [class.selected]="hero === selectedHero" (click)="onSelectHero(hero)">
+      <span class="badge">{{hero.priority}}</span>{{hero.nickName}}
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h2>New Avenger</h2>
+  <label>
+    Priority : <input placeholder="prioriy" [(ngModel)]="newHero.priority">
+    Name : <input placeholder="name" [(ngModel)]="newHero.name">
+    Nick Name : <input placeholder="nick name" [(ngModel)]="newHero.nickName">
+  </label>
+  <button (click)="submitNewHero()">Submit</button>
+</div>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
